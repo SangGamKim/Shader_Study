@@ -1,58 +1,35 @@
 ﻿Shader "Study/Shader_Study_2"
 {
-    Properties
-    {
-        _MainTex ("Texture", 2D) = "white" {}
-    }
-    SubShader
-    {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
+	Properties
+	{
+		_MainTex("Albedo (RGB)", 2D) = "white" {}
+		_Brightness("밝기", Range(-1,1)) = 0
+	}
+		SubShader
+		{
+			Tags { "RenderType" = "Opaque" }
 
-        Pass
-        {
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            // make fog work
-            #pragma multi_compile_fog
+			CGPROGRAM
+			#pragma surface surf Standard fullforwardshadows
 
-            #include "UnityCG.cginc"
 
-            struct appdata
-            {
-                float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-            };
+			sampler2D _MainTex;
 
-            struct v2f
-            {
-                float2 uv : TEXCOORD0;
-                UNITY_FOG_COORDS(1)
-                float4 vertex : SV_POSITION;
-            };
+			struct Input
+			{
+				float2 uv_MainTex;
+			};
 
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
+			float _Brightness;
 
-            v2f vert (appdata v)
-            {
-                v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                UNITY_TRANSFER_FOG(o,o.vertex);
-                return o;
-            }
-
-            fixed4 frag (v2f i) : SV_Target
-            {
-                // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
-                // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, col);
-                return col;
-            }
-            ENDCG
-        }
-    }
+			void surf(Input IN, inout SurfaceOutputStandard o)
+			{
+				fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
+				//Albedo값은 빛이 들어가고
+				//Emission값은 빛이 안 들어가고
+				o.Emission = (c.rgb + _Brightness) / 3;
+			}
+			ENDCG
+		}
+			FallBack "Diffuse"
 }
