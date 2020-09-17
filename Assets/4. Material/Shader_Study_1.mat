@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader_Study_4
-  m_Shader: {fileID: 4800000, guid: e036896d28cfb9e41a34021578de480f, type: 3}
+  m_Name: Shader_Study_1
+  m_Shader: {fileID: 4800000, guid: 5af486a9ff86d15479c6da4c727b5089, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -43,10 +43,6 @@ Material:
         m_Texture: {fileID: 2800000, guid: 9ac0adb4b1d277646893cfef2e8ca73d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTex2:
-        m_Texture: {fileID: 2800000, guid: ea301d8516f4d3746b1555305ddb061b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -60,7 +56,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Alpha: 0.5
     - _Brightness: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -78,8 +73,6 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _alpha: 1
-    - _bright: 1.59
     m_Colors:
     - _Color: {r: 0.990566, g: 0.3037113, b: 0.3037113, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
