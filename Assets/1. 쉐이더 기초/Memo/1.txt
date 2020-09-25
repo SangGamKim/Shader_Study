@@ -1,0 +1,15 @@
+
+struct SurfaceOutputStandard
+{
+	fixed3 Albedo; 빛에 영향을 받음
+	fixed3 Normal;
+	half3 Emission; 빛에 영향을 받지 않음
+	half Metallic;
+	half Smoothness;
+	half Occlusion;
+	Fixed Alpha;
+}
+
+Shader_1과 _2의 차이점을 보고 공부하면 됨
+일단 빛에 영향 받는 것과 안 받는것 차이다.
+그리고 코드를 쓰는 방법
